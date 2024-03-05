@@ -6,36 +6,35 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 }
 
 switch(attack) {
-    case AT_NSPECIAL :
-        if (window_timer == 4) {
-            if(!instance_exists(box)) {
-                box = instance_create(x,y,"obj_article1");
-                box.state = 0;
-                move_cooldown[AT_NSPECIAL] = 30;
-            }
-            else {
-                with oPlayer {
-                    if (get_player_team(player) != get_player_team(other.player)) {
-                        if (instance_place(x,y,other.box) && other.box.state = 0) {
-                            other.box.state = 1;
-                            box.image_index = 0;
-                            other.player.move_cooldown[AT_NSPECIAL] = 120;
-                        }
+    case AT_DSPECIAL:
+        move_cooldown[AT_DSPECIAL] = 6;
+        move_cooldown[AT_NSPECIAL] = 6;
+        switch(window) {
+            case 2:
+                if (window_timer == 1) {
+                    switch instance_exists(delivery_box) {
+                        case true:
+                            if !(delivery_box.type != "healing" && window < 1) { // Cannot delete healing boxes
+                                delivery_box.state = -1;
+                                delivery_box.state_timer = 0;
+                            }
+                            break;
+                        case false:
+                            delivery_box = instance_create(x,y+10,"obj_article1");
+                            if shield_down {
+                                delivery_box.type = "healing";
+                            }
+                            else {
+                                delivery_box.type = "damage";  
+                            }
+                            delivery_box.lifetime = delivery_lifetime;
+                            delivery_box.state = 0;
+                            delivery_box.state_timer = 0;
+                            break;
                     }
                 }
-                if box.state != 1 {
-                    box.state = 2;
-                    move_cooldown[AT_NSPECIAL] = 30;
-                }
-                
-                
-                //attack = AT_NSPECIAL_2;
-                
-            }
+                break;
         }
-        break;
-    case AT_NSPECIAL_2 :
-        
         break;
     case AT_USPECIAL:
         switch(window) {
@@ -43,12 +42,7 @@ switch(attack) {
                 move_cooldown[AT_USPECIAL] = 6;
                 move_cooldown[AT_NSPECIAL] = 6;
                 
-                if instance_exists(solid_box) && solid_box.state == 0 {
-                    x = solid_box.x;
-                    y = solid_box.y-32;
-                    solid_box.state_timer = 0;
-                    solid_box.state = 1;
-                }
+                
                 if solid_timer > 0 {
                     set_hitbox_value(AT_USPECIAL, 1, HG_WINDOW_CREATION_FRAME, 99);
                     if !instance_exists(solid_box) {
@@ -61,13 +55,30 @@ switch(attack) {
                 break;
             case 2:
                 if (window_timer == 1) {
-                    vsp = -12;
-                }
-                break;
-            case 3:
-                if (window_timer == 1 && solid_timer <= 0) {
-                    solid_box = instance_create(x,y+32,"obj_article_solid");
-                    solid_timer = solid_interval;
+                    if (!instance_exists(solid_box) && solid_timer <= 0) || (instance_exists(solid_box)) {
+                        if !right_down && !left_down { vsp = -12; hsp = 0;}
+                        if right_down && !left_down { hsp = +6; vsp = -6;}
+                        if !right_down && left_down { hsp = -6; vsp = -6;}
+                    }
+                    switch instance_exists(solid_box) {
+                        case true:
+                            if solid_box.state == 1 { 
+                                x = solid_box.x;
+                                y = solid_box.y-32; // Teleport there
+                                solid_box.state_timer = 0;
+                                solid_box.state = 2; // Set to active
+                            }
+                            break;
+                        case false:
+                            if (window_timer == 1 && solid_timer <= 0) {
+                                solid_box = instance_create(x,y+16,"obj_article_solid");
+                                solid_box.lifetime = solid_lifetime;
+                                solid_timer = solid_interval;
+                                solid_box.state_timer = 0;
+                                solid_box.state = 0; // Set to initialize
+                            }
+                            break;
+                    }
                 }
                 break;
         }

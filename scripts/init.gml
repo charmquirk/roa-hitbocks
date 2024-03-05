@@ -5,7 +5,7 @@ hitstun_hurtbox_spr = -1;
 
 char_height = 16;
 idle_anim_speed = .1;
-crouch_anim_speed = .1;
+crouch_anim_speed = 1;
 walk_anim_speed = .125;
 dash_anim_speed = .2;
 pratfall_anim_speed = .25;
@@ -13,13 +13,13 @@ pratfall_anim_speed = .25;
 walk_speed = 2.5;
 walk_accel = 0.4;
 walk_turn_time = 2;
-initial_dash_time = 6;
+initial_dash_time = 8;
 initial_dash_speed = 6;
 dash_speed = 5;
 dash_turn_time = 4;
 dash_turn_accel = 1.5;
-dash_stop_time = 2;
-dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
+dash_stop_time = 14;
+dash_stop_percent = .6; //the value to multiply your hsp by when going into idle from dash or dashstop
 ground_friction = 0.6;
 moonwalk_accel = 1.4;
 
@@ -98,12 +98,36 @@ air_dodge_sound = asset_get("sfx_quick_dodge");
 bubble_x = 0;
 bubble_y = 8;
 
-// box_max_healing = 22;
-// box_healing_done = 0;
-box = noone;
+
+// Solid Box
 solid_box = noone;
-solid_timer = 0;
-solid_interval = 400;
+solid_timer = 0; // Cooldown timer
+solid_interval = 180; // Cooldown time
+solid_lifetime = 400;
+// Delivery box
+delivery_box = noone;
+// deliver_timer = 0; // Set-up timer
+// delivery_interval = 180; // Set-up time
+delivery_lifetime = 600;
 
 beg_x = 0;
 beg_y = 0;
+
+// Colors
+hb_c = get_player_color(player);
+
+hb_r0 = get_color_profile_slot_r(get_player_color(player),0);
+hb_g0 = get_color_profile_slot_g(get_player_color(player),0);
+hb_b0 = get_color_profile_slot_b(get_player_color(player),0);
+
+hb_r1 = get_color_profile_slot_r(get_player_color(player),1);
+hb_g1 = get_color_profile_slot_g(get_player_color(player),1);
+hb_b1 = get_color_profile_slot_b(get_player_color(player),1);
+
+hb_r2 = get_color_profile_slot_r(get_player_color(player),2);
+hb_g2 = get_color_profile_slot_g(get_player_color(player),2);
+hb_b2 = get_color_profile_slot_b(get_player_color(player),2);
+
+hb_r3 = get_color_profile_slot_r(get_player_color(player),3);
+hb_g3 = get_color_profile_slot_g(get_player_color(player),3);
+hb_b3 = get_color_profile_slot_b(get_player_color(player),3);

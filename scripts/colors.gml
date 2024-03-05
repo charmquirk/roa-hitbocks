@@ -18,7 +18,7 @@ set_color_profile_slot_range( 3, 1, 1, 1 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 10 );
+set_num_palettes( 16 );
 
 // Diamond Box
 set_color_profile_slot( 1, 0, 222, 255, 235 ); //highlight
@@ -26,7 +26,7 @@ set_color_profile_slot( 1, 1, 140, 255, 219 ); //base
 set_color_profile_slot( 1, 2, 0, 204, 150 ); //shade
 set_color_profile_slot( 1, 3, 0, 107, 70 ); //lowlight
 
-// unnamed alt palette
+// Sky Box
 set_color_profile_slot( 2, 0, 168, 216, 255 ); //highlight
 set_color_profile_slot( 2, 1, 66, 173, 255 ); //base
 set_color_profile_slot( 2, 2, 26, 95, 245 ); //shade
@@ -57,10 +57,16 @@ set_color_profile_slot( 6, 2, 161, 149, 0 ); //shade
 set_color_profile_slot( 6, 3, 81, 110, 48 ); //lowlight
 
 // Modeling
-set_color_profile_slot( 7, 0, 255, 255, 255 ); //highlight
-set_color_profile_slot( 7, 1, 168, 168, 168 ); //base
-set_color_profile_slot( 7, 2, 168, 168, 168 ); //shade
-set_color_profile_slot( 7, 3, 0, 0, 0 ); //lowlight
+// set_color_profile_slot( 7, 0, 255, 255, 255 ); //highlight
+// set_color_profile_slot( 7, 1, 168, 168, 168 ); //base
+// set_color_profile_slot( 7, 2, 168, 168, 168 ); //shade
+// set_color_profile_slot( 7, 3, 0, 0, 0 ); //lowlight
+
+// Carboard
+set_color_profile_slot( 7, 0, 255, 222, 196 ); //unnamed color row
+set_color_profile_slot( 7, 1, 201, 137, 87 ); //unnamed color row
+set_color_profile_slot( 7, 2, 112, 77, 49 ); //unnamed color row
+set_color_profile_slot( 7, 3, 33, 18, 15 ); //unnamed color row
 
 // Greyscale
 set_color_profile_slot( 8, 0, 255, 255, 255 ); //highlight
@@ -68,12 +74,54 @@ set_color_profile_slot( 8, 1, 168, 168, 168 ); //base
 set_color_profile_slot( 8, 2, 84, 84, 84 ); //shade
 set_color_profile_slot( 8, 3, 0, 0, 0 ); //lowlight
 
-// Cartridge
-set_color_profile_slot( 9, 0, 0, 255, 255 ); //highlight
+// // CYM Light
+// set_color_profile_slot( 9, 0, 0, 255, 255 ); //highlight
+// set_color_profile_slot( 9, 1, 255, 0, 255 ); //base
+// set_color_profile_slot( 9, 2, 255, 255, 0 ); //shade
+// set_color_profile_slot( 9, 3, 255, 255, 255 ); //lowlight
+// CYM Light
+set_color_profile_slot( 9, 0, 255, 255, 0 ); //highlight
 set_color_profile_slot( 9, 1, 255, 0, 255 ); //base
-set_color_profile_slot( 9, 2, 255, 255, 0 ); //shade
+set_color_profile_slot( 9, 2, 0, 255, 255 ); //shade
 set_color_profile_slot( 9, 3, 255, 255, 255 ); //lowlight
 
+// RGB Light
+set_color_profile_slot( 10, 0, 255, 0, 0 ); //unnamed color row
+set_color_profile_slot( 10, 1, 0, 255, 0 ); //unnamed color row
+set_color_profile_slot( 10, 2, 0, 0, 255 ); //unnamed color row
+set_color_profile_slot( 10, 3, 255, 255, 255 ); //unnamed color row
+
+// RGB Dark 
+set_color_profile_slot( 11, 0, 0, 0, 0 ); //unnamed color row
+set_color_profile_slot( 11, 1, 0, 255, 0 ); //unnamed color row
+set_color_profile_slot( 11, 2, 255, 0, 0 ); //unnamed color row
+set_color_profile_slot( 11, 3, 0, 0, 255 ); //unnamed color row
+
+
+// CYM Dark 
+set_color_profile_slot( 12, 0, 0, 0, 0 ); //highlight
+set_color_profile_slot( 12, 1, 255, 0, 255 ); //base
+set_color_profile_slot( 12, 2, 0, 255, 255 ); //shade
+set_color_profile_slot( 12, 3, 255, 255, 0 ); //lowlight
+
+
+// Black light
+set_color_profile_slot( 13, 0, 0, 0, 0 ); //unnamed color row
+set_color_profile_slot( 13, 1, 0, 0, 0 ); //unnamed color row
+set_color_profile_slot( 13, 2, 0, 0, 0 ); //unnamed color row
+set_color_profile_slot( 13, 3, 96, 0, 255 ); //unnamed color row
+
+// Charm Quirk
+set_color_profile_slot( 14, 0, 255, 255, 255 ); //unnamed color row
+set_color_profile_slot( 14, 1, 255, 128, 0 ); //unnamed color row
+set_color_profile_slot( 14, 2, 0, 0, 0 ); //unnamed color row
+set_color_profile_slot( 14, 3, 255, 128, 0 ); //unnamed color row
+
+// Pastel Pink
+set_color_profile_slot( 15, 0, 255, 255, 255 ); //unnamed color row
+set_color_profile_slot( 15, 1, 255, 199, 222 ); //unnamed color row
+set_color_profile_slot( 15, 2, 212, 127, 204 ); //unnamed color row
+set_color_profile_slot( 15, 3, 99, 0, 112 ); //unnamed color row
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
 === BEGIN JSON PALETTE ===
