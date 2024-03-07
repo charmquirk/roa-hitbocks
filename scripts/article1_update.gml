@@ -78,12 +78,12 @@ if state == 1 && state_timer >= lifetime {
     state_timer = 0;
 }
 if state == 0 {
-    var tick1 = 8;
-    var tick2 = 6.5;
-    var tick3 = 5.5;
+    var tick1 = 2;
+    var tick2 = 1.75;
+    var tick3 = 1.5;
     var ticks = tick1+tick2+tick3;
     var tracker = floor(floor(state_timer/frame_tick)/win_num);
-    switch winds {
+    switch bars {
         case 0:
             frame_tick = tick1;
             break;
@@ -94,13 +94,12 @@ if state == 0 {
             frame_tick = tick3;
             break;
     }
-    // print_debug(winds);
-    
-    if state_timer >= win_num*frame_tick {
-        winds++;
+    if state_timer >= win_num*frame_tick*revolutions {
+        bars++;
         state_timer = 0;
-        if winds >= winds_max {
+        if bars >= bars_max {
             state = 1;
         }
+        // print_debug("BAR"+string(bars))
     }
 }

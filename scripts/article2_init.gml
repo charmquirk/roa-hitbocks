@@ -1,1 +1,1 @@
-//article1_init
+//article2_init
