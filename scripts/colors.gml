@@ -97,13 +97,11 @@ set_color_profile_slot( 11, 1, 0, 255, 0 ); //unnamed color row
 set_color_profile_slot( 11, 2, 255, 0, 0 ); //unnamed color row
 set_color_profile_slot( 11, 3, 0, 0, 255 ); //unnamed color row
 
-
 // CYM Dark 
 set_color_profile_slot( 12, 0, 0, 0, 0 ); //highlight
 set_color_profile_slot( 12, 1, 255, 0, 255 ); //base
 set_color_profile_slot( 12, 2, 0, 255, 255 ); //shade
 set_color_profile_slot( 12, 3, 255, 255, 0 ); //lowlight
-
 
 // Black light
 set_color_profile_slot( 13, 0, 0, 0, 0 ); //unnamed color row
@@ -117,11 +115,86 @@ set_color_profile_slot( 14, 1, 255, 128, 0 ); //unnamed color row
 set_color_profile_slot( 14, 2, 0, 0, 0 ); //unnamed color row
 set_color_profile_slot( 14, 3, 255, 128, 0 ); //unnamed color row
 
-// Pastel Pink
+//Strange Quack
 set_color_profile_slot( 15, 0, 255, 255, 255 ); //unnamed color row
-set_color_profile_slot( 15, 1, 255, 199, 222 ); //unnamed color row
-set_color_profile_slot( 15, 2, 212, 127, 204 ); //unnamed color row
-set_color_profile_slot( 15, 3, 99, 0, 112 ); //unnamed color row
+set_color_profile_slot( 15, 1, 128, 0, 255 ); //unnamed color row
+set_color_profile_slot( 15, 2, 0, 0, 0 ); //unnamed color row
+set_color_profile_slot( 15, 3, 128, 0, 255 ); //unnamed color row
+
+
+// Save for later
+
+// //Fartbox
+// set_color_profile_slot( 1, 0, 196, 196, 64 ); //unnamed color row
+// set_color_profile_slot( 1, 1, 128, 128, 0 ); //unnamed color row
+// set_color_profile_slot( 1, 2, 96, 96, 0 ); //unnamed color row
+// set_color_profile_slot( 1, 3, 48, 48, 48 ); //unnamed color row
+// //or
+// set_color_profile_slot( 1, 0, 255, 255, 96 ); //unnamed color row
+// set_color_profile_slot( 1, 1, 160, 196, 0 ); //unnamed color row
+// set_color_profile_slot( 1, 2, 128, 128, 0 ); //unnamed color row
+// set_color_profile_slot( 1, 3, 64, 48, 0 ); //unnamed color row
+
+// //HotBOX
+// set_color_profile_slot( 5, 0, 255, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 5, 1, 255, 196, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 2, 255, 128, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 3, 255, 0, 0 ); //unnamed color row
+// // or
+// set_color_profile_slot( 5, 0, 255, 223, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 1, 255, 160, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 2, 255, 96, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 3, 196, 0, 0 ); //unnamed color row
+// //or
+// set_color_profile_slot( 5, 0, 255, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 5, 1, 255, 196, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 2, 255, 128, 0 ); //unnamed color row
+// set_color_profile_slot( 5, 3, 224, 0, 0 ); //unnamed color row
+
+// // IceBOX
+// set_color_profile_slot( 2, 0, 255, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 2, 1, 128, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 2, 2, 0, 196, 255 ); //unnamed color row
+// set_color_profile_slot( 2, 3, 0, 128, 255 ); //unnamed color row
+// //or
+// // unnamed alt palette
+// set_color_profile_slot( 2, 0, 255, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 2, 1, 128, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 2, 2, 0, 196, 255 ); //unnamed color row
+// set_color_profile_slot( 2, 3, 0, 128, 255 ); //unnamed color row
+
+// //skybox
+// set_color_profile_slot( 6, 0, 0, 196, 255 ); //unnamed color row
+// set_color_profile_slot( 6, 1, 0, 128, 255 ); //unnamed color row
+// set_color_profile_slot( 6, 2, 0, 64, 128 ); //unnamed color row
+// set_color_profile_slot( 6, 3, 0, 32, 96 ); //unnamed color row
+// //or dull
+// set_color_profile_slot( 6, 0, 160, 196, 196 ); //unnamed color row
+// set_color_profile_slot( 6, 1, 96, 128, 160 ); //unnamed color row
+// set_color_profile_slot( 6, 2, 64, 96, 128 ); //unnamed color row
+// set_color_profile_slot( 6, 3, 32, 48, 64 ); //unnamed color row
+
+// // Quilt or pastel cool
+// set_color_profile_slot( 6, 0, 128, 196, 255 ); //unnamed color row
+// set_color_profile_slot( 6, 1, 128, 128, 255 ); //unnamed color row
+// set_color_profile_slot( 6, 2, 128, 64, 128 ); //unnamed color row
+// set_color_profile_slot( 6, 3, 64, 32, 96 ); //unnamed color row
+
+
+
+/////////// Cut Palettes
+
+// Pastel
+// set_color_profile_slot( 15, 0, 255, 255, 196 ); //unnamed color row
+// set_color_profile_slot( 15, 1, 255, 216, 255 ); //unnamed color row
+// set_color_profile_slot( 15, 2, 196, 255, 196 ); //unnamed color row
+// set_color_profile_slot( 15, 3, 255, 255, 196 ); //unnamed color row
+
+// Pastel Pink
+// set_color_profile_slot( 15, 0, 255, 255, 255 ); //unnamed color row
+// set_color_profile_slot( 15, 1, 255, 199, 222 ); //unnamed color row
+// set_color_profile_slot( 15, 2, 212, 127, 204 ); //unnamed color row
+// set_color_profile_slot( 15, 3, 99, 0, 112 ); //unnamed color row
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
 === BEGIN JSON PALETTE ===

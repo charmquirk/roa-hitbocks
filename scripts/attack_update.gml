@@ -12,27 +12,50 @@ switch(attack) {
         switch(window) {
             case 2:
                 if (window_timer == 1) {
-                    switch instance_exists(delivery_box) {
+                    switch instance_exists(jackbox) {
                         case true:
-                            if !(delivery_box.type != "healing" && window < 1) { // Cannot delete healing boxes
-                                delivery_box.state = -1;
-                                delivery_box.state_timer = 0;
+                            if !(jackbox.type != "healing" && window < 1) { // Cannot delete healing boxes
+                                jackbox.state = -1;
+                                jackbox.state_timer = 0;
                             }
                             break;
                         case false:
-                            delivery_box = instance_create(x,y+10,"obj_article1");
+                            jackbox = instance_create(x,y+10,"obj_article1");
                             if shield_down {
-                                delivery_box.type = "healing";
+                                jackbox.type = "healing";
                             }
                             else {
-                                delivery_box.type = "damage";  
+                                jackbox.type = "damage";  
                             }
-                            delivery_box.lifetime = delivery_lifetime;
-                            delivery_box.state = 0;
-                            delivery_box.state_timer = 0;
+                            jackbox.lifetime = jackbox_lifetime;
+                            jackbox.state = 0;
+                            jackbox.state_timer = 0;
+                            sound_play(sfx_winding1);
                             break;
                     }
                 }
+                break;
+        }
+        break;
+    case AT_FSPECIAL:
+        switch(window){
+            case 1:
+                if blackbox_charges > 0 && blackbox_timer <= blackbox_interval*(max_blackboxes-blackbox_charges) {
+                    set_hitbox_value(AT_FSPECIAL, 1, HG_WINDOW_CREATION_FRAME, 1);
+                }
+                else {
+                    set_hitbox_value(AT_FSPECIAL, 1, HG_WINDOW_CREATION_FRAME, 99);
+                }
+                break;
+            case 2:
+                if window_timer == 1 {
+                    if blackbox_charges > 0 && blackbox_timer <= blackbox_interval*(max_blackboxes-blackbox_charges) {
+                        // array_push(blackboxes, blackbox)
+                        blackbox_timer += blackbox_interval;
+                        blackbox_charges--;
+                    }
+                }
+                move_cooldown[AT_FSPECIAL] = 6;
                 break;
         }
         break;
@@ -70,10 +93,8 @@ switch(attack) {
                             }
                             break;
                         case false:
-                            if (window_timer == 1 && solid_timer <= 0) {
-                                solid_box = instance_create(x,y+16,"obj_article_solid");
-                                solid_box.lifetime = solid_lifetime;
-                                solid_timer = solid_interval;
+                            if solid_timer <= 0 {
+                                solid_box = instance_create(x, y+16,"obj_article_solid");
                                 solid_box.state_timer = 0;
                                 solid_box.state = 0; // Set to initialize
                             }

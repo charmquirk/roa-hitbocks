@@ -24,7 +24,7 @@ ground_friction = 0.6;
 moonwalk_accel = 1.4;
 
 jump_start_time = 4;
-jump_speed = 10;
+jump_speed = 12;
 short_hop_speed = 6;
 djump_speed = 10;
 leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
@@ -99,16 +99,22 @@ bubble_x = 0;
 bubble_y = 8;
 
 
-// Solid Box
+// Solid Box / Mail Box
 solid_box = noone;
 solid_timer = 0; // Cooldown timer
 solid_interval = 180; // Cooldown time
 solid_lifetime = 400;
-// Delivery box
-delivery_box = noone;
-// deliver_timer = 0; // Set-up timer
-// delivery_interval = 180; // Set-up time
-delivery_lifetime = 600;
+// Jack-in-the-box
+jackbox = noone;
+jackbox_lifetime = 600;
+// Black box
+blackbox = noone;
+blackbox_interval = 240;
+blackbox_lifetime = 600;
+blackbox_timer = 0;
+blackboxes = [];
+max_blackboxes = 2;
+blackbox_charges = max_blackboxes;
 
 beg_x = 0;
 beg_y = 0;
@@ -131,3 +137,6 @@ hb_b2 = get_color_profile_slot_b(get_player_color(player),2);
 hb_r3 = get_color_profile_slot_r(get_player_color(player),3);
 hb_g3 = get_color_profile_slot_g(get_player_color(player),3);
 hb_b3 = get_color_profile_slot_b(get_player_color(player),3);
+
+// Custom Sounds
+sfx_winding1 = sound_get("pop_goes_the_weasel_p1");

@@ -5,3 +5,5 @@ if instance_exists(solid_box) {
     solid_box.state_timer = 0;
 }
 solid_timer = 0;
+blackbox_charges = max_blackboxes;
+blackbox_timer = 0;
