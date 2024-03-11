@@ -1,31 +1,31 @@
-hurtbox_spr = sprite_get("idle_hurtbox");
-crouchbox_spr = sprite_get("idle_hurtbox");
+hurtbox_spr = sprite_get("mask");
+crouchbox_spr = sprite_get("mask");
 air_hurtbox_spr = -1;
 hitstun_hurtbox_spr = -1;
 
-char_height = 16;
+char_height = 32;
 idle_anim_speed = .1;
-crouch_anim_speed = 1;
+crouch_anim_speed = 2;
 walk_anim_speed = .125;
 dash_anim_speed = .2;
 pratfall_anim_speed = .25;
 
 walk_speed = 2.5;
 walk_accel = 0.4;
-walk_turn_time = 2;
+walk_turn_time = 6;
 initial_dash_time = 8;
-initial_dash_speed = 6;
-dash_speed = 5;
-dash_turn_time = 4;
+initial_dash_speed = 2;
+dash_speed = 6;
+dash_turn_time = 6;
 dash_turn_accel = 1.5;
-dash_stop_time = 14;
-dash_stop_percent = .6; //the value to multiply your hsp by when going into idle from dash or dashstop
+dash_stop_time = 8;
+dash_stop_percent = 0.6; //the value to multiply your hsp by when going into idle from dash or dashstop
 ground_friction = 0.6;
 moonwalk_accel = 1.4;
 
 jump_start_time = 4;
 jump_speed = 12;
-short_hop_speed = 6;
+short_hop_speed = 8.5;
 djump_speed = 10;
 leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
 max_jump_hsp = 8; //the maximum hsp you can have when jumping from the ground
@@ -36,9 +36,9 @@ prat_fall_accel = .2; //multiplier of air_accel while in pratfall
 air_friction = .2;
 max_djumps = 1;
 double_jump_time = 32; //the number of frames to play the djump animation. Can't be less than 31.
-walljump_hsp = 7;
-walljump_vsp = 11;
-walljump_time = 32;
+walljump_hsp = 8.5;
+walljump_vsp = 8.5;
+walljump_time = 12;
 max_fall = 12; //maximum fall speed without fastfalling
 fast_fall = 16; //fast fall speed
 gravity_speed = .65;
@@ -58,8 +58,8 @@ crouch_recovery_frames = 1;
 
 //parry animation frames
 dodge_startup_frames = 1;
-dodge_active_frames = 1;
-dodge_recovery_frames = 3;
+dodge_active_frames = 5;
+dodge_recovery_frames = 1;
 
 //tech animation frames
 tech_active_frames = 3;
@@ -73,17 +73,17 @@ techroll_speed = 10;
 
 //airdodge animation frames
 air_dodge_startup_frames = 1;
-air_dodge_active_frames = 2;
-air_dodge_recovery_frames = 3;
+air_dodge_active_frames = 5;
+air_dodge_recovery_frames = 1;
 air_dodge_speed = 8;
 
 //roll animation frames
-roll_forward_startup_frames = 2;
-roll_forward_active_frames = 4;
-roll_forward_recovery_frames = 2;
-roll_back_startup_frames = 2;
-roll_back_active_frames = 4;
-roll_back_recovery_frames = 2;
+roll_forward_startup_frames = 1;
+roll_forward_active_frames = 5;
+roll_forward_recovery_frames = 1;
+roll_back_startup_frames = 1;
+roll_back_active_frames = 5;
+roll_back_recovery_frames = 1;
 roll_forward_max = 8; //roll speed
 roll_backward_max = 8;
 
@@ -100,10 +100,10 @@ bubble_y = 8;
 
 
 // Solid Box / Mail Box
-solid_box = noone;
-solid_timer = 0; // Cooldown timer
-solid_interval = 180; // Cooldown time
-solid_lifetime = 400;
+mailbox = noone;
+mailbox_timer = 0; // Cooldown timer
+mailbox_interval = 180; // Cooldown time
+mailbox_lifetime = 400;
 // Jack-in-the-box
 jackbox = noone;
 jackbox_lifetime = 600;

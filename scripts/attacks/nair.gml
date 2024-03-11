@@ -8,8 +8,8 @@ set_attack_value(AT_NAIR, AG_NUM_WINDOWS, 1);
 set_attack_value(AT_NAIR, AG_OFF_LEDGE, 1);
 
 
-set_window_value(AT_NAIR, 1, AG_WINDOW_LENGTH, 16);
-set_window_value(AT_NAIR, 1, AG_WINDOW_ANIM_FRAMES, 8);
+set_window_value(AT_NAIR, 1, AG_WINDOW_LENGTH, 12);
+set_window_value(AT_NAIR, 1, AG_WINDOW_ANIM_FRAMES, 6);
 set_window_value(AT_NAIR, 1, AG_WINDOW_ANIM_FRAME_START, 0);
 //set_window_value(AT_NAIR, 1, AG_WINDOW_HAS_SFX, 0);
 set_window_value(AT_NAIR, 1, AG_WINDOW_TYPE, 0);

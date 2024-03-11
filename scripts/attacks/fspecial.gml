@@ -41,7 +41,7 @@ set_hitbox_value(AT_FSPECIAL, 1, HG_SHAPE, 1);
 // set_hitbox_value(AT_FSPECIAL, 1, HG_HITPAUSE_SCALING, 2);
 // set_hitbox_value(AT_FSPECIAL, 1, HG_THROWS_ROCK, 2);
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_SPRITE, sprite_get("blackbox"));
-set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_MASK, sprite_get("blackbox_mask"));
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_HSPEED, 2);
 // set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_VSPEED, 0);
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_PARRY_STUN, 1);

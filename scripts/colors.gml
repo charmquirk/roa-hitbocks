@@ -50,7 +50,6 @@ set_color_profile_slot( 5, 1, 255, 196, 228 ); //unnamed color row
 set_color_profile_slot( 5, 2, 212, 128, 160 ); //unnamed color row
 set_color_profile_slot( 5, 3, 128, 32, 96 ); //unnamed color row
 
-
 // Carboard Box
 set_color_profile_slot( 6, 0, 255, 224, 160 ); //unnamed color row
 set_color_profile_slot( 6, 1, 192, 128, 48 ); //unnamed color row

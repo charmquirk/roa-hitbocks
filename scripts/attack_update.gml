@@ -17,10 +17,18 @@ switch(attack) {
                             if !(jackbox.type != "healing" && window < 1) { // Cannot delete healing boxes
                                 jackbox.state = -1;
                                 jackbox.state_timer = 0;
+                                sound_stop(sfx_winding1);
                             }
                             break;
                         case false:
-                            jackbox = instance_create(x,y+10,"obj_article1");
+                            var margin_y = 24;
+                            if free { 
+                                jackbox = instance_create(x,y,"obj_article1");
+                            }
+                            else {
+                                jackbox = instance_create(x,y+margin_y,"obj_article1");
+                            }
+                            
                             if shield_down {
                                 jackbox.type = "healing";
                             }
@@ -53,9 +61,14 @@ switch(attack) {
                         // array_push(blackboxes, blackbox)
                         blackbox_timer += blackbox_interval;
                         blackbox_charges--;
+                        if !attack_down {set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_HSPEED, walk_speed);}
+                        if attack_down {set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_HSPEED, dash_speed);}
+                        
+                        
                     }
                 }
                 move_cooldown[AT_FSPECIAL] = 6;
+                move_cooldown[AT_USPECIAL] = 6;
                 break;
         }
         break;
@@ -66,39 +79,34 @@ switch(attack) {
                 move_cooldown[AT_NSPECIAL] = 6;
                 
                 
-                if solid_timer > 0 {
-                    set_hitbox_value(AT_USPECIAL, 1, HG_WINDOW_CREATION_FRAME, 99);
-                    if !instance_exists(solid_box) {
-                        move_cooldown[AT_USPECIAL] = 90;
-                    }
-                }
-                else {
-                    reset_hitbox_value(AT_USPECIAL, 1, HG_WINDOW_CREATION_FRAME);
-                }
+                if mailbox_timer > 0 { set_hitbox_value(AT_USPECIAL, 1, HG_WINDOW_CREATION_FRAME, 99);}
+                else {reset_hitbox_value(AT_USPECIAL, 1, HG_WINDOW_CREATION_FRAME);}
                 break;
             case 2:
                 if (window_timer == 1) {
-                    if (!instance_exists(solid_box) && solid_timer <= 0) || (instance_exists(solid_box)) {
-                        if !right_down && !left_down { vsp = -12; hsp = 0;}
-                        if right_down && !left_down { hsp = +6; vsp = -6;}
-                        if !right_down && left_down { hsp = -6; vsp = -6;}
-                    }
-                    switch instance_exists(solid_box) {
+                    switch instance_exists(mailbox) {
                         case true:
-                            if solid_box.state == 1 { 
-                                x = solid_box.x;
-                                y = solid_box.y-32; // Teleport there
-                                solid_box.state_timer = 0;
-                                solid_box.state = 2; // Set to active
+                            if mailbox.state == 1 { 
+                                x = mailbox.x;
+                                y = mailbox.y-32; // Teleport there
+                                mailbox.state_timer = 0;
+                                mailbox.state = 2; // Set to active
                             }
                             break;
                         case false:
-                            if solid_timer <= 0 {
-                                solid_box = instance_create(x, y+16,"obj_article_solid");
-                                solid_box.state_timer = 0;
-                                solid_box.state = 0; // Set to initialize
+                            if mailbox_timer <= 0 {
+                                if free {mailbox = instance_create(x, y + 32,"obj_article_solid");}
+                                else {mailbox = instance_create(x, y + 32,"obj_article_solid");}
+                                mailbox.state_timer = 0;
+                                mailbox.state = 0; // Set to initialize
                             }
                             break;
+                    }
+                    if instance_exists(mailbox) && (mailbox.state == 0 || mailbox.state == 2) {
+                        if !right_down && !left_down { vsp = -12; }
+                        // Triangle = 8.5^2 + 8.5^2 = 12^2
+                        if right_down && !left_down { hsp = +8.5; vsp = -8.5;}
+                        if !right_down && left_down { hsp = -8.5; vsp = -8.5;}
                     }
                 }
                 break;

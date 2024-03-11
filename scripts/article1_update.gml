@@ -57,9 +57,19 @@ switch(state) {
 
 
 var win_num = win_max - win_min +1;
-if win_num > 1 {image_index = win_min + floor(floor(state_timer/frame_tick) % win_num);}
-else {image_index = win_min;}
-if (state_timer >= win_num*frame_tick) && state != 1 && state != 0 {
+
+if state != 0 {
+    if win_num > 1 {image_index = win_min + floor(floor(state_timer/frame_tick) % win_num);}
+    else {image_index = win_min;}
+}
+else {
+    image_index = win_min + floor(floor(wind_timer/frame_tick) % win_num);
+}
+
+
+// Switch states normally
+if state != 1 && state != 0 && (state_timer >= win_num*frame_tick) {
+    
     switch state {
         case -1:
             instance_destroy();
@@ -73,33 +83,37 @@ if (state_timer >= win_num*frame_tick) && state != 1 && state != 0 {
     }
     state_timer = 0;
 }
-if state == 1 && state_timer >= lifetime {
-    state = -1;
-    state_timer = 0;
-}
-if state == 0 {
-    var tick1 = 2;
-    var tick2 = 1.75;
-    var tick3 = 1.5;
-    var ticks = tick1+tick2+tick3;
-    var tracker = floor(floor(state_timer/frame_tick)/win_num);
-    switch bars {
-        case 0:
-            frame_tick = tick1;
-            break;
-        case 1:
-            frame_tick = tick2;
-            break;
-        case 2:
-            frame_tick = tick3;
-            break;
-    }
-    if state_timer >= win_num*frame_tick*revolutions {
-        bars++;
-        state_timer = 0;
-        if bars >= bars_max {
-            state = 1;
+
+// Switch states abnormally
+switch state {
+    case 0:
+        switch bars {
+            case 0:
+                frame_tick = tick1;
+                break;
+            case 1:
+                frame_tick = tick2;
+                break;
+            case 2:
+                frame_tick = tick3;
+                break;
         }
-        // print_debug("BAR"+string(bars))
-    }
+        if wind_timer >= win_num*frame_tick*revolutions {
+            bars++;
+            wind_timer = 0;
+            if bars >= bars_max {
+                state = 1;
+                state_timer = 0;
+            }
+        }
+        // print_debug("BARS: " + string(bars) + " of " + string(revolutions))
+        wind_timer++;
+        break;
+    case 1:
+        if state_timer >= lifetime {
+            state = -1;
+            state_timer = 0;
+        }
+        break;
+
 }
